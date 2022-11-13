@@ -7,30 +7,44 @@ function App(){
 
     const [honda,tesla] = cars;
 
-    const {hondaTopSpeed} = honda.speedStats.topSpeed;
-    const {teslaTopSpeed} = tesla.speedStats.topSpeed;
+    const {
+        speedStats: {topSpeed: hondaTopSpeed},
+        coloursByPopularity: [hondaTopColour]
+    } = honda;
 
-    const {hondaTopColour} = honda.hondaTopColour[0];
-    const {teslaTopColour} = tesla.teslaTopColour[0];
+    const {
+        speedStats: {topSpeed: teslaTopSpeed},
+        coloursByPopularity: [teslaTopColour]
+    } = tesla;
 
     return(
-    <table>
-        <tr>
-            <th>Brand</th>
-            <th>Top Speed</th>
-        </tr>
-        <tr>
-            <td>{tesla.model}</td>
-            <td>{teslaTopSpeed}</td>
-            <td>{teslaTopColour}</td>
-        </tr>
-        <tr>
-            <td>{honda.model}</td>
-            <td>{hondaTopSpeed}</td>
-            <td>{hondaTopColour}</td>
-        </tr>
-    </table>
+        <table>
+            <tr>
+                <th>Brand</th>
+                <th>Top Speed</th>
+            </tr>
+            <tr>
+                <td>{tesla.model}</td>
+                <td>{teslaTopSpeed}</td>
+                <td>{teslaTopColour}</td>
+            </tr>
+            <tr>
+                <td>{honda.model}</td>
+                <td>{hondaTopSpeed}</td>
+                <td>{hondaTopColour}</td>
+            </tr>
+        </table>
     );
 }
 
 export default App;
+
+// process ...
+
+    // const {topSpeed: hondaTopSpeed} = honda.speedStats;
+    // const {topSpeed: teslaTopSpeed} = tesla.speedStats;
+
+    // const {coloursByPopularity: hondaColours} = honda;
+    // const hondaTopColour = hondaColours[0];
+    // const {coloursByPopularity: teslaColours} = tesla;
+    // const teslaTopColour = teslaColours[0];
